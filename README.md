@@ -18,11 +18,7 @@ Section 5.1 of the reference paper introduces a localized Gaussian wall disturba
 
 
 $$
-H^{*}(x^{*})
-=
-h^{*}\exp\left(
--\frac{\left|x^{*}\right|^{2}}{\left(l_x^{*}\right)^{2}}
-\right).
+H^{*}(x^{*}) = h^{*}\exp\left(-\frac{|x^{*}|^{2}}{(l_x^{*})^{2}}\right).
 $$
 
 Using the nondimensional variables introduced in the paper, the wall disturbance is expressed as:
