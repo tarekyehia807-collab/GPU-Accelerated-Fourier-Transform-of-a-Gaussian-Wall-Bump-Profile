@@ -17,7 +17,10 @@ The project isolates the Fourier-transform operation associated with the wall ge
 Section 5.1 of the reference paper introduces a localized Gaussian wall disturbance, defined as follows:
 
 $$
-H^{*}(x^{*}) = h^{*}\exp\left(-\frac{|x^{*}|^{2}}{(l_x^{*})^{2}}\right).
+H^{*}(x^{*}) =
+h^{*}\exp\left(
+-\frac{|x^{*}|^{2}}{(l_x^{*})^{2}}
+\right).
 $$
 
 Using the nondimensional variables introduced in the paper, the wall disturbance is expressed as:
@@ -25,7 +28,7 @@ Using the nondimensional variables introduced in the paper, the wall disturbance
 $$
 H'(x) =
 h\exp\left(
--\frac{|x|^2}{l_x^2}
+-\frac{|x|^{2}}{l_x^{2}}
 \right).
 $$
 
