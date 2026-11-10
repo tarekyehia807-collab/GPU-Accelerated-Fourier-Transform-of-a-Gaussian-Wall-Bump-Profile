@@ -15,11 +15,11 @@ The project isolates the Fourier-transform operation associated with the wall ge
 ## Mathematical Formulation
 
 Section 5.1 of the reference paper introduces a localized Gaussian wall disturbance. Its mathematical expression is:
-
 $$
-H^*(x^*) =
-h^*\exp\left(
--\frac{|x^*|^2}{(l_x^*)^2}
+H^{*}(x^{*})
+=
+h^{*}\exp\left(
+-\frac{\left|x^{*}\right|^{2}}{\left(l_x^{*}\right)^{2}}
 \right).
 $$
 
