@@ -14,25 +14,16 @@ The project isolates the Fourier-transform operation associated with the wall ge
 
 ## Mathematical Formulation
 
-Section 5.1 of the reference paper introduces a localized Gaussian wall disturbance, defined as follows:
-
-$$
-H^{*}(x^{*}) =
-h^{*}\exp\left(
--\frac{|x^{*}|^{2}}{(l_x^{*})^{2}}
-\right).
-$$
-
-Using the nondimensional variables introduced in the paper, the wall disturbance is expressed as:
+The project considers the nondimensional Gaussian wall-bump profile introduced in Section 5.1 of the reference paper:
 
 $$
 H'(x) =
 h\exp\left(
--\frac{|x|^{2}}{l_x^{2}}
+-\frac{|x|^2}{l_x^2}
 \right).
 $$
 
-Here, the prime denotes the wall disturbance notation used in the paper; it does not indicate differentiation with respect to the spatial coordinate.
+Here, the prime denotes the wall-disturbance notation used in the paper; it does not indicate differentiation with respect to the spatial coordinate.
 
 The Fourier transform of the wall disturbance is defined as:
 
@@ -72,14 +63,12 @@ H(k)=
 e^{-x^2}\cos(kx)\,dx.
 $$
 
-The analytical Fourier transform given in Equation (5.1b) is:
+The analytical Fourier transform is:
 
 $$
-\boxed{
 H_{\mathrm{exact}}(k)
 =
-\sqrt{\pi}\exp\left(-\frac{k^2}{4}\right)
-}
+\sqrt{\pi}\exp\left(-\frac{k^2}{4}\right).
 $$
 
 This analytical expression is used as the reference solution for numerical validation.
@@ -239,13 +228,6 @@ The program generates the following file:
 
 `gaussian_fourier_results.csv`
 
-The CSV file contains:
-
-- FP64 and FP32 wavenumbers.
-- Analytical Fourier coefficients.
-- CPU numerical results.
-- CUDA numerical results.
-
 This allows the numerical results to be independently inspected and plotted.
 
 ## Building
@@ -286,6 +268,5 @@ Page, J., & Zaki, T. A. (2016). **Viscoelastic shear flow over a wavy surface.**
 
 https://doi.org/10.1017/jfm.2016.455
 
-**Relevant section:** Section 5.1, "Gaussian wall bump," Equations (5.1a) and (5.1b).
-
-[Full paper (PDF)](https://engineering.jhu.edu/zaki/wp-content/uploads/2018/12/Page_JFM2016.pdf)
+**Relevant section:** Section 5.1, "Gaussian wall bump."
+(https://engineering.jhu.edu/zaki/wp-content/uploads/2018/12/Page_JFM2016.pdf)
