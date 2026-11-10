@@ -16,51 +16,65 @@ The project isolates the Fourier-transform operation associated with the wall ge
 
 In Section 5.1, the paper defines a localized Gaussian wall disturbance as
 
-\[
-H^*(x^*)=h^*\exp\left(-\frac{|x^*|^2}{l_x^{*2}}\right).
-\]
+$$
+H^*(x^*) =
+h^*\exp\left(
+-\frac{|x^*|^2}{l_x^{*2}}
+\right).
+$$
 
 Using the nondimensional variables introduced in the paper, the wall disturbance becomes
 
-\[
-H'(x)=h\exp\left(-\frac{|x|^2}{l_x^2}\right).
-\]
+$$
+H'(x) =
+h\exp\left(
+-\frac{|x|^2}{l_x^2}
+\right).
+$$
 
-Here, the prime denotes the wall disturbance notation used in the paper; it does not indicate differentiation with respect to \(x\).
+Here, the prime denotes the wall disturbance notation used in the paper; it does not indicate differentiation with respect to $x$.
 
 The Fourier transform is defined as
 
-\[
-H(k)=\int_{-\infty}^{+\infty}H'(x)e^{-ikx}\,dx.
-\]
+$$
+H(k) =
+\int_{-\infty}^{+\infty}
+H'(x)e^{-ikx}\,dx.
+$$
 
-The paper retains \(l_x=1\) for clarity and adopts the normalization \(h=1\).
+The paper retains $l_x=1$ for clarity and adopts the normalization $h=1$.
 
 Therefore,
 
-\[
+$$
 H'(x)=e^{-x^2},
-\]
+$$
 
 and
 
-\[
-H(k)=\int_{-\infty}^{+\infty}e^{-x^2}e^{-ikx}\,dx.
-\]
+$$
+H(k)=
+\int_{-\infty}^{+\infty}
+e^{-x^2}e^{-ikx}\,dx.
+$$
 
 Since the Gaussian profile is even, the imaginary component of the Fourier integral vanishes. The transform can consequently be evaluated using
 
-\[
-H(k)=2\int_0^\infty e^{-x^2}\cos(kx)\,dx.
-\]
+$$
+H(k)=
+2\int_0^\infty
+e^{-x^2}\cos(kx)\,dx.
+$$
 
 The analytical Fourier transform given by Equation (5.1b) is
 
-\[
+$$
 \boxed{
-H_{\mathrm{exact}}(k)=\sqrt{\pi}\exp\left(-\frac{k^2}{4}\right)
+H_{\mathrm{exact}}(k)
+=
+\sqrt{\pi}\exp\left(-\frac{k^2}{4}\right)
 }
-\]
+$$
 
 This analytical expression is used as the reference for numerical validation.
 
@@ -68,42 +82,47 @@ This analytical expression is used as the reference for numerical validation.
 
 The infinite integration domain is truncated to
 
-\[
+$$
 0\leq x\leq x_{\max},
-\qquad x_{\max}=8.
-\]
+\qquad
+x_{\max}=8.
+$$
 
 The integral is evaluated using the composite trapezoidal rule:
 
-\[
+$$
 H(k_m)\approx
 2\Delta x
 \left[
 \frac{f_m(x_0)}{2}
-+\sum_{j=1}^{N_x-1}f_m(x_j)
-+\frac{f_m(x_{N_x})}{2}
++
+\sum_{j=1}^{N_x-1}f_m(x_j)
++
+\frac{f_m(x_{N_x})}{2}
 \right],
-\]
+$$
 
 where
 
-\[
+$$
 f_m(x_j)=e^{-x_j^2}\cos(k_mx_j),
-\]
+$$
 
 and
 
-\[
+$$
 \Delta x=\frac{x_{\max}}{N_x}.
-\]
+$$
 
 The implementation evaluates the transform at uniformly spaced wavenumbers over
 
-\[
+$$
 -10\leq k\leq 10.
-\]
+$$
 
 The numerical results are compared against the analytical solution over the same wavenumber values.
+
+The implementation evaluates each Fourier coefficient directly through numerical quadrature rather than using an FFT.
 
 ## CPU and CUDA Implementations
 
@@ -134,8 +153,8 @@ Both single-precision (FP32) and double-precision (FP64) implementations are eva
 |---|---:|
 | GPU | NVIDIA GeForce RTX 4050 Laptop GPU |
 | Compute capability | 8.9 |
-| Wall-bump amplitude, h | 1 |
-| Wall-bump length scale, lx | 1 |
+| Wall-bump amplitude, $h$ | 1 |
+| Wall-bump length scale, $l_x$ | 1 |
 | Number of wavenumbers | 4,096 |
 | Integration intervals | 4,096 |
 | Integration nodes | 4,097 |
@@ -191,20 +210,20 @@ The speedup values are calculated from the measured CPU and GPU times. They desc
 
 Both implementations are compared against the analytical Fourier transform.
 
-The following error metrics are reported:
+The following error metrics are evaluated:
 
 - Maximum absolute error.
 - Relative L2 error.
 - Maximum CPU/GPU absolute difference.
 - Maximum relative error for coefficients satisfying
 
-\[
+$$
 |H_{\mathrm{exact}}(k)|>10^{-3}.
-\]
+$$
 
-The FP64 CUDA implementation achieves a maximum absolute error on the order of \(10^{-16}\).
+The FP64 CUDA implementation achieves a maximum absolute error on the order of $10^{-16}$.
 
-The FP32 CUDA implementation achieves a maximum absolute error on the order of \(10^{-7}\).
+The FP32 CUDA implementation achieves a maximum absolute error on the order of $10^{-7}$.
 
 These results demonstrate agreement between the numerical implementations and the analytical Fourier transform at both precision levels.
 
@@ -263,4 +282,4 @@ https://doi.org/10.1017/jfm.2016.455
 
 **Relevant section:** Section 5.1, *Gaussian wall bump*, Equations (5.1a) and (5.1b).
 
-[Full paper (PDF)](https://engineering.jhu.edu/zaki/wp-content/uploads/2018/12/Page_JFM2016.pdf)
+(https://engineering.jhu.edu/zaki/wp-content/uploads/2018/12/Page_JFM2016.pdf)
