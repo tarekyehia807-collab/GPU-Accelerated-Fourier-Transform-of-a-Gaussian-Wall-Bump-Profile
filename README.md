@@ -17,18 +17,18 @@ The project isolates the Fourier-transform operation associated with the wall ge
 In Section 5.1, the paper defines a localized Gaussian wall disturbance as
 
 $$
-H^*(x^*) =
-h^*\exp\left(
--\frac{|x^*|^2}{l_x^{*2}}
+H^{*}(x^{*}) =
+h^{*}\exp\left(
+-\frac{|x^{*}|^{2}}{(l_x^{*})^{2}}
 \right).
 $$
 
 Using the nondimensional variables introduced in the paper, the wall disturbance becomes
 
 $$
-H'(x) =
+H^{\prime}(x) =
 h\exp\left(
--\frac{|x|^2}{l_x^2}
+-\frac{|x|^{2}}{l_x^{2}}
 \right).
 $$
 
@@ -39,7 +39,7 @@ The Fourier transform is defined as
 $$
 H(k) =
 \int_{-\infty}^{+\infty}
-H'(x)e^{-ikx}\,dx.
+H^{\prime}(x)e^{-ikx}\,dx.
 $$
 
 The paper retains $l_x=1$ for clarity and adopts the normalization $h=1$.
@@ -47,7 +47,7 @@ The paper retains $l_x=1$ for clarity and adopts the normalization $h=1$.
 Therefore,
 
 $$
-H'(x)=e^{-x^2},
+H^{\prime}(x)=e^{-x^{2}},
 $$
 
 and
@@ -55,15 +55,15 @@ and
 $$
 H(k)=
 \int_{-\infty}^{+\infty}
-e^{-x^2}e^{-ikx}\,dx.
+e^{-x^{2}}e^{-ikx}\,dx.
 $$
 
 Since the Gaussian profile is even, the imaginary component of the Fourier integral vanishes. The transform can consequently be evaluated using
 
 $$
 H(k)=
-2\int_0^\infty
-e^{-x^2}\cos(kx)\,dx.
+2\int_{0}^{\infty}
+e^{-x^{2}}\cos(kx)\,dx.
 $$
 
 The analytical Fourier transform given by Equation (5.1b) is
@@ -72,7 +72,7 @@ $$
 \boxed{
 H_{\mathrm{exact}}(k)
 =
-\sqrt{\pi}\exp\left(-\frac{k^2}{4}\right)
+\sqrt{\pi}\exp\left(-\frac{k^{2}}{4}\right)
 }
 $$
 
@@ -105,7 +105,7 @@ $$
 where
 
 $$
-f_m(x_j)=e^{-x_j^2}\cos(k_mx_j),
+f_m(x_j)=e^{-x_j^{2}}\cos(k_mx_j),
 $$
 
 and
@@ -218,7 +218,7 @@ The following error metrics are evaluated:
 - Maximum relative error for coefficients satisfying
 
 $$
-|H_{\mathrm{exact}}(k)|>10^{-3}.
+\left|H_{\mathrm{exact}}(k)\right|>10^{-3}.
 $$
 
 The FP64 CUDA implementation achieves a maximum absolute error on the order of $10^{-16}$.
@@ -282,4 +282,4 @@ https://doi.org/10.1017/jfm.2016.455
 
 **Relevant section:** Section 5.1, *Gaussian wall bump*, Equations (5.1a) and (5.1b).
 
-(https://engineering.jhu.edu/zaki/wp-content/uploads/2018/12/Page_JFM2016.pdf)
+[Full paper (PDF)](https://engineering.jhu.edu/zaki/wp-content/uploads/2018/12/Page_JFM2016.pdf)
